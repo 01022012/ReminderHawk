@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   
   validates_presence_of :subdomain
+  validates_presence_of :name
   validates_uniqueness_of :subdomain  
 
   has_many  :company_users, :dependent => :destroy

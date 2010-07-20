@@ -1,0 +1,343 @@
+/*********** Styles common for layout **************/
+/********* 3-COLUMN ******************************/
+
+form,p,h1,h2,h3,h4,h5,h6,h7,ul,li,span,input{
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+    background: #434343;
+    font:normal 76% verdana,tahoma,arial,"sans serif";
+}
+
+#wrapper{
+    width: 950px;
+    background: #fff;
+    margin: 0 auto;
+}
+#header{
+  height:  51px;
+  background: #fff;
+  width: 100%;
+}
+#header #logo img{
+  height: 51px;
+  width: 226px;
+  border: 0;
+}
+
+#header  #logo-holder #logo{
+  height: 51px;
+  border: 0;
+}
+
+
+
+/********** Vertical aligning the image and text *********/
+img.image-align{
+  vertical-align: middle;
+}
+/******************/
+
+
+
+/*************** 3 COLUMN STYLES *******************/
+
+/* hide these rules from CSS-challenged browsers */
+@media screen, projection {
+/* below exploits a parsing error so @media rules will be visible to MacIE5 */
+.BeNiceToMacIE5 {
+  font-family: "\"}\"";
+  font-family: inherit;
+}
+
+
+.left-content {
+  width: 44%;       
+  float: left;             
+  margin: 0;               
+  font-size: 90%;
+
+  
+}
+
+.middle-content {
+  width: 54.9%;             
+  float: right;           
+  margin: 0; 
+}
+
+
+
+} /* end screen only rules */
+
+@media screen, projection, print {
+/* below exploits a parsing error so @media rules will be visible to MacIE5 */
+.BeNiceToMacIE5 {
+  font-family: "\"}\"";
+  font-family: inherit;
+}
+
+
+.outer-container {
+  width: 100%;            
+  margin: 0;              
+  color: #000;
+}
+
+/*.inner-container {
+  width: 80.2%;             
+  float: left;             
+  color: #000;             
+  margin: 0;            
+}*/
+
+.right-content {
+  width: 19%;            
+  float: right;            
+  margin: 0;   
+}
+.clearfix {
+  clear: both;
+  margin: 0;               
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+}
+} /* end screen/print rules */
+
+/* rules for WinIE only */
+@media screen, projection {
+* html .clear {
+  display: none;           /* prevent excessive gap at div bottom in WinIE5 */
+}
+} /* end WinIE only rules */
+
+
+
+/* print only rules (per request) */
+@media print {
+.nav {
+	display: none;
+}
+.content {
+	float: left;
+}
+
+} /* end print only rules */
+
+
+
+/****************3 COLUMN END ***********************/
+
+
+/****** Main Menus **************/
+
+.main-menus{
+    width: 100%;
+    background: url('/images/main-menu-bg.gif') left top repeat-x;
+    height: 33px;
+	padding:0 20px;
+	width: 900px;
+}
+    .mmenus {
+      float: middle;
+      font-size: 11px;
+      line-height: normal;
+	  white-space: nowrap;
+      }
+    .mmenus ul {
+  	  margin:0;
+	  list-style:none;
+	  float:left;
+      }
+     .mmenus li {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      }
+    .mmenus a {
+      float:left;
+      background: url("/images/tab-lt.png") no-repeat left top;
+      margin: 0;
+      padding: 0 0 0 5px;
+      text-decoration: none;
+      }
+    .mmenus a span {
+      float: right;
+      display: block;
+      background :url("/images/tab-rt.png") no-repeat right top;
+	  font-family: helvetica;
+	  font-size: 13px;
+	  font-weight: bold;
+      padding: 13px 24px 5px 20px;
+      color: #fff;
+      }
+    /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .mmenus a span {float:none;}
+    /* End IE5-Mac hack */
+    .mmenus a:hover span {
+      color: #333;
+      }
+    .mmenus a:hover {
+      background-position: 0% -35px;
+      }
+    .mmenus a:hover span {
+      background-position: 100% -35px;
+      }
+      
+	 .mmenus ul li a.selected_menu{
+	   background-position: 0% -35px;
+	   
+	  }
+	  .mmenus ul li a.selected_menu span.selected_span{
+	  background-position: 100% -35px; 
+	  color: #644e00;
+
+	  }
+
+
+
+
+/*************** menu-below-border-effect ***********************/
+#menu-below{
+    height: 11px;
+	background: url('/images/menu-below-bg.gif') left top repeat-x;
+	width: 100%;
+}
+
+#menu-con{
+    height: 100px;
+	background: #555;
+}
+
+
+
+/**************** Yellow Area ********************/
+
+#yellow-area{
+   height: 128px;
+   background: url('/images/ya-bg.png') left top repeat-x;
+}
+#yellow-area #ya-lt{
+   height: 128px;
+   background: url('/images/ya-lt1.png') left top no-repeat;
+}
+#yellow-area #ya-rt{
+   height: 128px;
+   background: url('/images/ya-rt.png') right top no-repeat;
+}
+
+
+/********* Main Content *********************/
+    .main-content{
+	   margin-top: 30px;
+     padding:0 20px 20px 20px;
+    }
+  
+
+
+/******** content styles ******************/
+/********* headings ********************/
+
+.content {
+ text-align: left;
+ color: #333;
+ font-family: Helvetica,Arial,"MS Trebuchet",sans-serif;
+}
+
+
+
+.content-lt{
+  padding: 10px 10px 0 0;
+}
+.content-mid{
+  padding: 10px 0 0 0;
+}
+
+.content .content-lt h1, 
+.content .content-mid h1 {
+ color: #333;  
+ font-size: 18px;
+ font-weight: normal;
+ height: 26px;
+ background: url('/images/heading-bullet.png') left center no-repeat;
+ padding: 0 0 0 22px;
+ border-bottom: 1px dashed #ddd;
+
+}
+
+
+.content .sub-headings h3  {
+ color: #d01910;  
+ font-size: 12px;
+ padding-bottom: 7px;
+}
+
+.content p.content-text{
+  font-size: 12px;
+  color: #333;
+}
+
+.content p.content-text1{
+  font-size: 13px;
+  color: #775e06;
+  background: #fbefb9;
+  padding: 10px;
+  margin-top: 5px;
+}
+.content p.content-text2{
+  font-size: 13px;
+  color: #775e06;
+  background: #fdf3ce;
+  padding: 10px;
+  margin-top: 5px;
+}
+.content p.content-text3{
+  font-size: 13px;
+  color: #775e06;
+  background: #f9ebaa;
+  padding: 10px;
+  margin-top: 5px;
+}
+.content p.content-text4{
+  font-size: 13px;
+  color: #775e06;
+  background: #f9ebaa;
+  padding: 10px 10px 20px 10px;
+  margin-top: 5px;
+}
+
+span.txt-red{
+  color: #d01910;
+}
+
+/************* Footer ********************/
+
+#footer{
+  width: 910px;
+  background: #434343;
+  color: #fff;
+  clear: both;
+  float: left;
+  border-top: 6px solid #ffc705;
+  padding:0 20px ;
+}
+
+#footer-content {
+  padding: 10px 0 10px 0;
+  font-size: 11px;
+  color: #797878;
+  }
+
+
+#footer-content a{
+  color: #797878;
+  padding: 0 4px  4px;
+}
+#footer-content a:hover{
+  color: #9d9b9b;
+  text-decoration: underline;
+}

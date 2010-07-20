@@ -13,6 +13,9 @@
 <%= f.password_field :password_confirmation %></p>
 
 <% f.fields_for :companies do |company_fields|%>
+  <p><%= company_fields.label :name, "Company Name"%><br/>
+  <%= company_fields.text_field :name%></p>
+
   <p><%= company_fields.label :subdomain%><br/>
   <%= company_fields.text_field :subdomain%></p>
 <%end-%>
