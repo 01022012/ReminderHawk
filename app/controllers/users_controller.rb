@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # render new.rhtml
   def new
     @user = User.new
+    @user.companies.build
   end
  
   def create
