@@ -26,3 +26,7 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+APPNAME = "Remindo"
+ADMINEMAIL = "support@localhost"
+BASE_URL = "http://localhost:3000"

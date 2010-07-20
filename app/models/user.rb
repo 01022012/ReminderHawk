@@ -64,6 +64,15 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
 
+  def after_create
+    UserMailer.deliver_signup_notification(self)
+  end
+
+  def after_save
+    reload
+    UserMailer.deliver_activation(self) if recently_activated?
+  end
+
   protected
     
     def make_activation_code
