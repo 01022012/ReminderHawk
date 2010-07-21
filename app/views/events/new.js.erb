@@ -1,3 +1,6 @@
-
-alert('JS Yay!');
 $("#new_event").html("<%= escape_javascript(render :partial => "edit_create")%>");
+
+$("#new_event_form").submit(function(){
+  $.post($(this).attr("action"), $(this).serialize(), null, "script");
+  return false;
+});

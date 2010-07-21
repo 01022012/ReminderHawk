@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
   has_many  :company_users
   has_many  :companies, :through => :company_users
 
+  has_many  :events
+
   # Nested attributes for creating a company with user if needed
   accepts_nested_attributes_for :companies
 

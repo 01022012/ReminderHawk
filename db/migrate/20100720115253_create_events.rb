@@ -8,7 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.boolean :repeat,  :default => false
       t.integer :user_id
       t.timestamps
-      t.boolean :all_day, :default => false
+      t.boolean :allDay, :default => false # For easy json conversion, using camelcase
     end
   end
 

@@ -16,7 +16,7 @@
 		var m = date.getMonth();
 		var y = date.getFullYear();
 
-    $("#new_event").dialog({ autoOpen: false })
+    $("#new_event").dialog({ autoOpen: false, width: 450 })
 
 
 
@@ -30,18 +30,7 @@
 
       defaultView: 'agendaWeek',
 
-		events: [
-				{
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-				{
-					title: 'Click for Google',
-					start: new Date(y, m, 28),
-					end: new Date(y, m, 29),
-					url: 'http://google.com/'
-				}
-			],
+   		events: <%=@events.to_json%>,
 
 
       dayClick: function(date, allDay, jsEvent, view) {
