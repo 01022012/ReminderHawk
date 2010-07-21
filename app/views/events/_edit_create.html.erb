@@ -1,0 +1,10 @@
+<%form_for :event do |f|%>
+  <p><label for="title">Title</label><br/>
+  <%=f.text_field :title %></p>
+  
+  <p><label for="start">Starts At</label><br/>
+  <%=f.text_field :start %></p>
+
+  <%= submit_tag "Create Event"%>
+<%end-%>
+
