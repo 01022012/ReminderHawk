@@ -3,6 +3,7 @@
 
 <div id="calendar"></div>
 <div id="new_event" title="Create a New Event">
+<div id="edit_event" title="Edit Event">
 	<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
 </div>
 
@@ -10,15 +11,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
-    // page is now ready, initialize the calendar...
-    var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-
     $("#new_event").dialog({ autoOpen: false, width: 450 })
-
-
+    $("#edit_event").dialog({ autoOpen: false, width: 450 })
 
     $('#calendar').fullCalendar({
      
@@ -47,12 +41,13 @@
 
       eventClick: function(calEvent, jsEvent, view) {
 
-          alert('Event: ' + calEvent.title);
-          alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-          alert('View: ' + view.name);
+          $("#edit_event").dialog('open');
+          $("#edit_event").html("Please wait");
+  
+          $.ajax({url:"/events/edit/"+ calEvent.id, 
+                  dataType: "script"
+                 });
 
-          // change the border color just for fun
-          $(this).css('border-color', 'red');
 
       }
 

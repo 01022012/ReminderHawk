@@ -11,7 +11,6 @@ class EventsController < ApplicationController
     @event = Event.new(:start => start,
                        :end => start + 30.minutes)
     respond_to do |format|
-      format.html { render :nothing => true }
       format.js
     end
   end
@@ -19,12 +18,34 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(params[:event])
     if @event.save
-      render :update do |page|
-        page.redirect_to  events_url
+      respond_to do |format|
+        format.js
       end
     else  
       respond_to do |format|
         format.js {render :action => 'new'}
+      end
+    end
+  end
+
+  def edit
+    @event = current_user.events.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
+  def update
+    @event = current_user.events.find(params[:id])
+    if @event.save
+      respond_to do |format|
+        format.js {render :text => "window.location=\"#{events_url}\""}
+      end
+    else  
+      respond_to do |format|
+        format.js {render :action => 'edit'}
       end
     end
   end

@@ -1,0 +1,3 @@
+$("#new_event").html("");
+$("#new_event").dialog("close");
+$("#calendar").fullCalendar("renderEvent", <%=@event.to_json%>);

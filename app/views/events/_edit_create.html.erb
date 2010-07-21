@@ -1,7 +1,7 @@
 <%= error_messages_for  :event%>
 
 <%form_for :event, :url => events_url, 
-                   :html => {:id => 'new_event_form'} do |f|%>
+                   :html => {:id => 'event_form'} do |f|%>
   <p><label for="title">Title</label><br/>
   <%=f.text_field :title %></p>
   
@@ -14,6 +14,6 @@
   <p><label for="subject">SMS Message</label><br/>
   <%= f.text_area :subject, :rows => 3%></p>
 
-  <%= submit_tag "Create Event"%>
+  <%= submit_tag "Save Event"%>
 <%end-%>
 
