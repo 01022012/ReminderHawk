@@ -2,7 +2,7 @@
 
 
 <div id="calendar"></div>
-<div id="dialog" title="Basic dialog">
+<div id="new_event" title="Create a New Event">
 	<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
 </div>
 
@@ -16,7 +16,7 @@
 		var m = date.getMonth();
 		var y = date.getFullYear();
 
-    $("#dialog").dialog({ autoOpen: false })
+    $("#new_event").dialog({ autoOpen: false })
 
 
 
@@ -36,40 +36,6 @@
 					start: new Date(y, m, 1)
 				},
 				{
-					title: 'Long Event',
-					start: new Date(y, m, d-5),
-					end: new Date(y, m, d-2)
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d-3, 16, 0),
-					allDay: false
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d+4, 16, 0),
-					allDay: false
-				},
-				{
-					title: 'Meeting',
-					start: new Date(y, m, d, 10, 30),
-					allDay: false
-				},
-				{
-					title: 'Lunch',
-					start: new Date(y, m, d, 12, 0),
-					end: new Date(y, m, d, 14, 0),
-					allDay: false
-				},
-				{
-					title: 'Birthday Party',
-					start: new Date(y, m, d+1, 19, 0),
-					end: new Date(y, m, d+1, 22, 30),
-					allDay: false
-				},
-				{
 					title: 'Click for Google',
 					start: new Date(y, m, 28),
 					end: new Date(y, m, 29),
@@ -80,20 +46,13 @@
 
       dayClick: function(date, allDay, jsEvent, view) {
 
-          if (allDay) {
-              alert('Clicked on the entire day: ' + date);
-          }else{
-              alert('Clicked on the slot: ' + date);
-          }
-
-          alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-          alert('Current view: ' + view.name);
-
-          // change the day's background color just for fun
-          $(this).css('background-color', 'red');
-      		$("#dialog").dialog('open');
-
+      		$("#new_event").dialog('open');
+          $("#new_event").html("Please wait");
+  
+          $.ajax({url:"<%=new_event_path%>", 
+                  data: "date="+date+"&all_day="+allDay,
+                  dataType: "script"
+                 });
 
       },
 
