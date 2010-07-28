@@ -39,7 +39,7 @@ class EventsController < ApplicationController
 
   def update
     @event = current_user.events.find(params[:id])
-    if @event.save
+    if @event.update_attributes(params[:event])
       respond_to do |format|
         format.js {render :text => "window.location=\"#{events_url}\""}
       end
