@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     start = Time.parse(params[:date].gsub(/GMT.*$/,''))
     @event = Event.new(:start => start,
                        :end => start + 30.minutes)
+    @event.phone_numbers.build
     respond_to do |format|
       format.js
     end

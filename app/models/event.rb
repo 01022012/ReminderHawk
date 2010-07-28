@@ -8,7 +8,6 @@ class Event < ActiveRecord::Base
   
 
   accepts_nested_attributes_for :phone_numbers, 
-      :reject_if => lambda { |a| a[:number].blank? }, 
       :allow_destroy => true 
 
 end
