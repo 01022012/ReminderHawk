@@ -23,7 +23,7 @@
 
   <p><b>Schedule Reminders</b></p>
   <% f.fields_for :reminders do |reminder_builder|%>
-    <p><%= reminder_builder.text_field :duration, {:size => '10', :class => 'duration'}%>  <%= reminder_builder.select :unit, Reminder::UNITS.enum_for(:each_with_index).collect {|u,i| [u, i]}%></p>
+    <p><%= reminder_builder.text_field :duration, {:size => '10', :class => 'duration'}%>  <%= reminder_builder.select :unit, Reminder::UNITS.enum_for(:each_with_index).collect {|u,i| [u, i]}%><%=reminder_builder.check_box :_delete%></p>
   <%end-%>
   <p><a href="#" onclick="ReminderHawk.addReminder(this); return false;">Add another Reminder</a></p>
 
