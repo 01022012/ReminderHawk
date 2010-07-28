@@ -11,6 +11,7 @@ class EventsController < ApplicationController
     @event = Event.new(:start => start,
                        :end => start + 30.minutes)
     @event.phone_numbers.build
+    @event.reminders.build(:duration => 3, :unit => 1)
     respond_to do |format|
       format.js
     end

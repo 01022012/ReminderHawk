@@ -14,12 +14,18 @@
   <p><label for="subject">SMS Message</label><br/>
   <%= f.text_area :subject, :rows => 3%></p>
 
+  <p><b>Add Mobile Numbers</b></p>
   <% f.fields_for :phone_numbers do |phone_builder|%>
-    <p><label for="number">Number</label><br/>
-    <%= phone_builder.text_field :number, {:class => 'phone_num'} %><%=phone_builder.check_box :_delete %>  </p>
+    <p><%= phone_builder.text_field :number, {:class => 'phone_num'} %><%=phone_builder.check_box :_delete %>  </p>
   <%end%> 
 
   <p><a href="#" onclick="ReminderHawk.addPhoneNumber(this); return false;">Add Phone Number</a></p>
+
+  <p><b>Schedule Reminders</b></p>
+  <% f.fields_for :reminders do |reminder_builder|%>
+    <p><%= reminder_builder.text_field :duration, {:size => '10', :class => 'duration'}%>  <%= reminder_builder.select :unit, Reminder::UNITS.enum_for(:each_with_index).collect {|u,i| [u, i]}%></p>
+  <%end-%>
+  <p><a href="#" onclick="ReminderHawk.addReminder(this); return false;">Add another Reminder</a></p>
 
 
   <%= submit_tag "Save Event"%>
