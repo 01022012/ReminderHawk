@@ -1,6 +1,6 @@
 <%= error_messages_for  :event%>
 
-<%form_for :event, :url => events_url, 
+<%form_for @event, :url => events_url, 
                    :html => {:id => 'event_form'} do |f|%>
   <p><label for="title">Title</label><br/>
   <%=f.text_field :title %></p>
@@ -13,6 +13,14 @@
 
   <p><label for="subject">SMS Message</label><br/>
   <%= f.text_area :subject, :rows => 3%></p>
+
+  <% f.fields_for :phone_numbers do |phone_builder|%>
+    <p><label for="number">Number</label><br/>
+    <%= phone_builder.text_field :number, {:class => 'phone_num'} %><%#= phone_builder.check_box :_delete %></p>
+  <%end%> 
+
+  <p><a href="#" onclick="ReminderHawk.addPhoneNumber(this); return false;">Add Phone Number</a></p>
+
 
   <%= submit_tag "Save Event"%>
 <%end-%>
