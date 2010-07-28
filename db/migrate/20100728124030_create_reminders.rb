@@ -5,6 +5,7 @@ class CreateReminders < ActiveRecord::Migration
       t.integer   :duration
       t.integer   :unit
       t.datetime  :remind_at
+      t.boolean   :sent,  :default => false
       t.timestamps
     end
   end

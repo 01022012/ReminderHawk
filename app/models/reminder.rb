@@ -6,10 +6,9 @@ class Reminder < ActiveRecord::Base
   INTERVAL = [:minute, :hour, :day]
 
 
-  def after_save
+  def before_save
     # Now set the actual reminder time in UTC
-#    self.remind_at = event.start - duration.send(INTERVAL[unit])
-#    save
+    self.remind_at = event.start - duration.send(INTERVAL[unit])
   end
 
 end
