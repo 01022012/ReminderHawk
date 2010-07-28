@@ -16,7 +16,7 @@
 
   <% f.fields_for :phone_numbers do |phone_builder|%>
     <p><label for="number">Number</label><br/>
-    <%= phone_builder.text_field :number, {:class => 'phone_num'} %><%#= phone_builder.check_box :_delete %></p>
+    <%= phone_builder.text_field :number, {:class => 'phone_num'} %><%=phone_builder.check_box :_delete %>  </p>
   <%end%> 
 
   <p><a href="#" onclick="ReminderHawk.addPhoneNumber(this); return false;">Add Phone Number</a></p>
