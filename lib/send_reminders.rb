@@ -5,7 +5,7 @@ require 'net/http'
 require 'uri'
 require 'cgi'
 
-ENV['RAILS_ENV'] ||= "development"
+ENV['RAILS_ENV'] ||= "production"
 
 yml = YAML.load_file File.join(File.dirname(__FILE__), '../config/' 'database.yml')
 

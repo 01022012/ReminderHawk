@@ -1,0 +1,7 @@
+$("#edit_event").html("<%= escape_javascript(render :partial => "edit_create")%>");
+
+$("#event_form").submit(function(){
+  $.put("<%=event_url(@event)%>", $(this).serialize(), null, "script");
+  return false;
+});
+
