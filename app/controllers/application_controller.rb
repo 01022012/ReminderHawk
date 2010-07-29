@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
 
   def set_timezone
     # For now
-    Time.zone = "New Delhi"
+    Time.zone = "IN"
   end
 end
