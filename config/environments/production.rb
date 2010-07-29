@@ -27,6 +27,6 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 
-APPNAME = "Remindo"
-ADMINEMAIL = "support@localhost"
-BASE_URL = "http://localhost:3000"
+APPNAME = "ReminderHawk"
+ADMINEMAIL = "support@reminderhawk.com"
+BASE_URL = "http://www.reminderhawk.com"

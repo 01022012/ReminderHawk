@@ -7,6 +7,10 @@ class CompanyUser < ActiveRecord::Base
 
   def after_create
     # If not an admin, send activation/welcome email
+    if company.users.size == 1  # Just the first user created
+      self.admin = true
+      save
+    end
   end
 
 end
