@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
   def create
     logout_keeping_session!
-    user = User.authenticate(params[:email], params[:password], current_subdomain)
+    user = User.authenticate(params[:email], params[:password])
     if user
       # Protects against session fixation attacks, causes request forgery
       # protection if user resubmits an earlier form using back
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default(events_url(:subdomain => current_user.companies[0].subdomain))
+      redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
       note_failed_signin
