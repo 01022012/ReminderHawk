@@ -60,10 +60,11 @@ class User < ActiveRecord::Base
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
-  def self.authenticate(login, password)
+  def self.authenticate(login, password, subdomain)
+    RAILS_DEFAULT_LOGGER.info(subdomain)
     return nil if login.blank? || password.blank?
     u = find :first, :conditions => ['email = ? and activated_at IS NOT NULL', login] # need to get the salt
-    u && u.authenticated?(password) ? u : nil
+    u && u.authenticated?(password) && u.companies[0].subdomain==subdomain ? u : nil
   end
 
   def login=(value)
@@ -80,7 +81,9 @@ class User < ActiveRecord::Base
 
   def after_save
     reload
-    UserMailer.deliver_activation(self) if recently_activated?
+    if recently_activated?
+      UserMailer.deliver_activation(self) 
+    end
   end
 
   protected
