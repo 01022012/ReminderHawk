@@ -39,7 +39,9 @@
                   <li><a href="/events" class="selected_menu"><span class="selected_span" >Home</span></a></li>
                   <%if logged_in?%>
                     <li><a href="/users/settings"><span>My Account</span></a></li>
-
+                    <%if current_user.companies[0].admin?(current_user)%>
+                      <li><%= link_to "<span>Manage Company</span>", edit_company_url(current_user.companies[0])%></li>
+                    <%end-%>
                   <%end-%>
                   <li><a href="/pages/contact" ><span>Support</span></a></li>
                </ul>

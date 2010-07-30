@@ -6,19 +6,22 @@
 
 <%form_for @user, :url => "/users/settings" do |f|%>
 
-  <p><%= label_tag 'email' %><br/>
-  <%= f.text_field :email %></p>
+  <fieldset>
+    <legend>Edit your details</legend>
+    <p><%= label_tag 'email' %><br/>
+    <%= f.text_field :email %></p>
   
-  <p><%= label_tag 'mobile', 'Mobile Number' %><br/>
-  <%= f.text_field :mobile %></p>
+    <p><%= label_tag 'mobile', 'Mobile Number' %><br/>
+    <%= f.text_field :mobile %></p>
 
-  <p><%= label_tag 'password', "Change Password" %><br/>
-  <%= f.password_field :password %></p>
+    <p><%= label_tag 'password', "Change Password" %><br/>
+    <%= f.password_field :password %></p>
 
-  <p><%= label_tag 'password_confirmation', 'Confirm New Password' %><br/>
-  <%= f.password_field :password_confirmation %></p>
+    <p><%= label_tag 'password_confirmation', 'Confirm New Password' %><br/>
+    <%= f.password_field :password_confirmation %></p>
 
-  <%= submit_tag "Save"%>
+    <%= submit_tag "Save"%>
+  </fieldset>
 
 <%end-%>
 

@@ -18,4 +18,13 @@ class ApplicationController < ActionController::Base
     # For now
     Time.zone = "New Delhi"
   end
+
+  def admin_required
+    if current_user.companies[0].admin?(current_user)
+      return true
+    else
+      flash[:notice] = "Only an admin can manage the company"
+      redirect_to "/"
+    end
+  end
 end
