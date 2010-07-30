@@ -36,6 +36,6 @@ config.action_mailer.default_charset = "utf-8"
 # Enable threaded mode
 # config.threadsafe!
 
-APPNAME = "ReminderHawk"
+APPNAME = "[ReminderHawk] "
 ADMINEMAIL = "support@reminderhawk.com"
 BASE_URL = "http://www.reminderhawk.com"

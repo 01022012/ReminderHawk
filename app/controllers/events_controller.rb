@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     start = Time.zone.parse(params[:date].gsub(/GMT.*$/,''))
     @event = Event.new(:start => start,
                        :end => start + 30.minutes)
-    @event.phone_numbers.build
+    @event.phone_numbers.build(:number => current_user.mobile)
     @event.reminders.build(:duration => 3, :unit => 1)
     respond_to do |format|
       format.js

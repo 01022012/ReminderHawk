@@ -37,6 +37,10 @@
 	      <div class="mmenus">
                <ul>
                   <li><a href="/events" class="selected_menu"><span class="selected_span" >Home</span></a></li>
+                  <%if logged_in?%>
+                    <li><a href="/users/settings"><span>My Account</span></a></li>
+
+                  <%end-%>
                   <li><a href="/pages/contact" ><span>Support</span></a></li>
                </ul>
 		</div>

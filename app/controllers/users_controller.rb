@@ -38,4 +38,14 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
     end
   end
+
+  def settings
+    @user = current_user
+    return unless request.put?
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Settings updated"
+    else
+      flash[:notice] = "Problem in updating settings" 
+    end
+  end
 end
