@@ -391,4 +391,11 @@ textarea{
 
 .no-margin{
   margin-bottom: 5px;
-]
+}
+
+input[type="text"], input[type="password"]{
+  height: 15px;
+  padding: 5px;
+  width: 200px;
+  font-size: 1.1em;
+}
