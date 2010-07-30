@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   before_filter :set_timezone
 
+  include ExceptionNotification::Notifiable
+
+
   include AuthenticatedSystem
 
   def set_timezone

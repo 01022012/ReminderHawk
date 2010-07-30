@@ -39,3 +39,10 @@ config.action_mailer.default_charset = "utf-8"
 APPNAME = "[ReminderHawk] "
 ADMINEMAIL = "support@reminderhawk.com"
 BASE_URL = "http://www.reminderhawk.com"
+
+ExceptionNotification::Notifier.exception_recipients = %w(prateek@muziboo.com)
+ExceptionNotification::Notifier.email_prefix = "[ReminderHawk] "
+ExceptionNotification::Notifier.sender_address = %("ReminderHawk Error" <support@reminderhawk.com>)
+
+
+
