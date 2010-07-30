@@ -18,15 +18,19 @@ body{
   background: #fff;
   width: 100%;
 }
-#header #logo img{
+
+#header  #logo-holder{
   height: 51px;
-  width: 226px;
   border: 0;
+  width: 300px;
+  float: left;
 }
 
-#header  #logo-holder #logo{
-  height: 51px;
-  border: 0;
+#login_logout{
+  width: 300px;
+  float: right;
+  margin: 10px;
+  text-align: right;
 }
 
 

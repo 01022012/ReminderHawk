@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = current_user.events
+    @main_tab = 0
    end
 
   def new

@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   end
 
   def settings
+    @main_tab = 1
     @user = current_user
     return unless request.put?
     if @user.update_attributes(params[:user])

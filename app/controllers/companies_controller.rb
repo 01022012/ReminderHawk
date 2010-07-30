@@ -4,6 +4,10 @@ class CompaniesController < ApplicationController
   before_filter :login_required
   before_filter :admin_required
 
+  def initialize
+    @main_tab = 2
+  end
+
   def new
     # HTML Form
 

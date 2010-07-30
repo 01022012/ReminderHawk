@@ -27,8 +27,15 @@
       <!-- header start-->
       <div id='header'>
 	    <div id='logo-holder'>
-          <div id='logo'><a href=''><img src='images/site-logo.gif' alt='Corningo' border='0' width='226' height='51' align='left' /></a></div>
+          <div id='logo'><a href=''><img src='/images/logo.png' alt='ReminderHawk' border='0' width='203' height='51' align='left' /></a></div>
 		</div>
+      <div id="login_logout">
+        <%if logged_in?%>
+          <%=current_user.email%> | <a href="/sessions/destroy">Logout</a>
+        <%else%>
+          <a href="/sessions/new">Login</a> | <a href="/users/new">Signup</a>
+        <%end%>
+      </div>
       </div>
       <!--header end -->
       
@@ -36,14 +43,15 @@
 	  <div class='main-menus'>
 	      <div class="mmenus">
                <ul>
-                  <li><a href="/events" class="selected_menu"><span class="selected_span" >Home</span></a></li>
+                  <li><a href="/events" class="<%= @main_tab == 0 ? 'selected_menu' : ''%>"><span class="<%= @main_tab == 0 ? 'selected_span' : ''%>">Events</span></a></li>
                   <%if logged_in?%>
-                    <li><a href="/users/settings"><span>My Account</span></a></li>
+                    <li><a href="/users/settings" class="<%= @main_tab == 1 ? 'selected_menu' : ''%>"><span class="<%= @main_tab == 1 ? 'selected_span' : ''%>">My Account</span></a></li>
                     <%if current_user.companies[0].admin?(current_user)%>
-                      <li><%= link_to "<span>Manage Company</span>", edit_company_url(current_user.companies[0])%></li>
+                      <li><%= link_to "<span class=\"#{@main_tab == 2 ? 'selected_span' : ''}\" >Manage Company</span>", edit_company_url(current_user.companies[0]),
+                                                            :class => (@main_tab == 2 ? 'selected_menu' : '')%></li>
                     <%end-%>
                   <%end-%>
-                  <li><a href="/pages/contact" ><span>Support</span></a></li>
+                  <li><a href="/pages/contact" class="<%= @main_tab == 3 ? 'selected_menu' : ''%>"><span class="<%= @main_tab == 3 ? 'selected_span' : ''%>">Support</span></a></li>
                </ul>
 		</div>
 	  </div>
