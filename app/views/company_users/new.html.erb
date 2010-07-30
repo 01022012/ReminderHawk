@@ -1,0 +1,17 @@
+<h1>Add a New User</h1>
+
+<p>You can add a new user here. We will email an activation link and a random password to the new user</p>
+
+<%= error_messages_for :user%>
+
+<%form_for @user, :url => company_users_path do |f|%>
+  <fieldset>
+  <p><%= label_tag 'email' %><br/>
+  <%= f.text_field :email %></p>
+  
+  <p><%= label_tag 'mobile', 'Mobile Number' %><br/>
+  <%= f.text_field :mobile %></p>
+
+  <p><%= submit_tag 'Sign up' %></p>
+  </fieldset>
+<%end-%> 
