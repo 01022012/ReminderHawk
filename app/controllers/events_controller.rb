@@ -7,7 +7,7 @@ class EventsController < ApplicationController
    end
 
   def new
-    start = Time.parse(params[:date].gsub(/GMT.*$/,''))
+    start = Time.zone.parse(params[:date].gsub(/GMT.*$/,''))
     @event = Event.new(:start => start,
                        :end => start + 30.minutes)
     @event.phone_numbers.build
