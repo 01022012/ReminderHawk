@@ -26,7 +26,7 @@ rescue Mysql::Error => e
   puts "Error SQLSTATE: #{e.sqlstate}" if e.respond_to?("sqlstate")
 end
 
-reminders = con.query("SELECT id, event_id, remind_at  FROM `reminders` WHERE (remind_at < '#{Time.now}' and sent is false)")
+reminders = con.query("SELECT id, event_id, remind_at  FROM `reminders` WHERE (remind_at < NOW() and sent is FALSE)")
 
 reminders.each do |r|
   puts "#{r[0]} - #{r[1]} - #{r[2]}"
