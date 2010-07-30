@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
   validates_format_of       :mobile,   :with => /\d{10}/, :message => "Please enter a 10 digit mobile number"
                                 
-
   before_create :make_activation_code 
 
   # HACK HACK HACK -- how to do attr_accessible from here?

@@ -1,10 +1,6 @@
 /*********** Styles common for layout **************/
 /********* 3-COLUMN ******************************/
 
-form,p,h1,h2,h3,h4,h5,h6,h7,ul,li,span,input{
-    padding: 0;
-    margin: 0;
-}
 body{
     padding: 0;
     margin: 0;
@@ -341,3 +337,58 @@ span.txt-red{
   color: #9d9b9b;
   text-decoration: underline;
 }
+
+legend, label.comment-label {
+  color: #690;
+  background-color: #FFF;
+}
+
+.form-errors{
+  color: #8A1F11;
+}
+
+.bubble_help{
+  display: inline;
+  margin-left: 10px;
+  color= !quiet_color;
+}
+
+fieldset{
+  border: 1px dotted #ccc;
+  * border: 1px solid #ccc;
+  * html border: 1px solid #ccc;
+}
+
+.form-help{
+  +small-p;
+}
+
+textarea.text_tags, textarea.signature{
+  height: 70px;
+}
+
+textarea.text_comment{
+  height: 150px;
+  width: 400px;
+}
+
+input.title{
+  width: 390px;
+}
+
+input[type="file"]{
+  margin: 0.5em 0;
+}
+
+p.small{
+  +small-p;
+}
+
+textarea{
+  height: 60px;
+  width: 320px;  
+}
+
+.no-margin{
+  margin-bottom: 5px;
+]

@@ -12,18 +12,18 @@
   <%=f.datetime_select :end %></p>
 
   <p><label for="subject">SMS Message</label><br/>
-  <%= f.text_area :subject, :rows => 3%></p>
+  <%= f.text_area :subject, :size => '3x30'%></p>
 
-  <p><b>Add Mobile Numbers</b></p>
+  <p class="no-margin"><b>Add Mobile Numbers</b></p>
   <% f.fields_for :phone_numbers do |phone_builder|%>
-    <p><%= phone_builder.text_field :number, {:class => 'phone_num'} %><span> Delete? <%=phone_builder.check_box :_delete %></span>  </p>
+    <%= phone_builder.text_field :number, {:class => 'phone_num'} %><span> Delete? <%=phone_builder.check_box :_delete %></span>  <br/>
   <%end%> 
 
   <p><a href="#" onclick="ReminderHawk.addPhoneNumber(this); return false;">Add Phone Number</a></p>
 
-  <p><b>Schedule Reminders</b></p>
+  <p class="no-margin"><b>Schedule Reminders</b></p>
   <% f.fields_for :reminders do |reminder_builder|%>
-    <p><%= reminder_builder.text_field :duration, {:size => '10', :class => 'duration'}%>  <%= reminder_builder.select :unit, Reminder::UNITS.enum_for(:each_with_index).collect {|u,i| [u, i]}%><span> Delete? <%=reminder_builder.check_box :_delete%></span></p>
+    <%= reminder_builder.text_field :duration, {:size => '10', :class => 'duration'}%>  <%= reminder_builder.select :unit, Reminder::UNITS.enum_for(:each_with_index).collect {|u,i| [u, i]}%><span> Delete? <%=reminder_builder.check_box :_delete%></span><br/>
   <%end-%>
   <p><a href="#" onclick="ReminderHawk.addReminder(this); return false;">Add another Reminder</a></p>
 
