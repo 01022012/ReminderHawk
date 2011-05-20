@@ -44,7 +44,7 @@ reminders.each do |r|
   puts phone_numbers
 
   # Time to send the reminder
-  Net::HTTP.get_print URI.parse("http://bulksms.gateway4sms.com/pushsms.php?username=reminderhawk&password=790188&to=#{phone_numbers.join(',')}&message=#{CGI::escape(message)}")
+  Net::HTTP.get_print URI.parse("http://bulksms.gateway4sms.com/pushsms.php?username=put_your_username_here&password=put_your_password_here&to=#{phone_numbers.join(',')}&message=#{CGI::escape(message)}")
 
   # Mark as sent
   con.query("UPDATE `reminders` SET `updated_at` = '#{Time.now}', `sent` = 1 WHERE `id` = #{r[0]}")
